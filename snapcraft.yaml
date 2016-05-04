@@ -1,0 +1,31 @@
+name: quagga
+version: 0.99.24.1
+summary: Quagga
+description: |
+  Quagga is a routing software suite providing implementations of OSPFv2, OSPFv3, RIP v1 and v2, RIPng and BGP-4.
+
+apps:
+  bgpd:
+    command: bin/bgpd-service
+    daemon: simple
+    plugs:
+      - network
+      - network-bind
+  zebra:
+    command: bin/zebra-service
+    daemon: simple
+    plugs:
+      - network
+      - network-bind
+
+parts:
+    quagga:
+        plugin: autotools
+        source: git://github.com/lool/quagga
+        build-packages: [ texinfo, libreadline-dev ]
+        stage-packages: [ libreadline6 ]
+    glue:
+        plugin: copy
+        files:
+          bgpd-service: bin/bgpd-service
+          zebra-service: bin/zebra-service
