@@ -2,7 +2,7 @@
 
 set -e -x
 
-exec $SNAP/usr/lib/quagga/bgpd \
+exec $SNAP/sbin/bgpd \
     -f $SNAP/etc/bgpd.conf \
     --pid_file $SNAP_DATA/bgpd.pid \
     --socket $SNAP_DATA/socket

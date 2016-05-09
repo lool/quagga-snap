@@ -2,7 +2,7 @@
 
 set -e -x
 
-exec $SNAP/usr/lib/quagga/zebra \
+exec $SNAP/sbin/zebra \
     -f $SNAP/etc/zebra.conf \
     --pid_file $SNAP_DATA/zebra.pid \
     --socket $SNAP_DATA/socket
