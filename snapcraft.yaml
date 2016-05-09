@@ -29,3 +29,5 @@ parts:
         files:
           bgpd-service: bin/bgpd-service
           zebra-service: bin/zebra-service
+          zebra.conf: etc/zebra.conf
+          bgpd.conf: etc/bgpd.conf
